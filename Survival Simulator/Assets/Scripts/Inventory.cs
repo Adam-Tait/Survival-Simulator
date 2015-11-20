@@ -13,10 +13,10 @@ public class Inventory : MonoBehaviour {
         rayCast = GameObject.Find("Main Camera").GetComponent<RayCast>();
     }
 
-    void Update ()
+    void Start ()
     {
-        wood = rayCast.saveWood;
-        berries = rayCast.saveBerries;
-        rock = rayCast.saveRock;
+        wood = wood + rayCast.saveWood;
+        berries = berries + rayCast.saveBerries;
+        rock = rock + rayCast.saveRock;
     }
 }
