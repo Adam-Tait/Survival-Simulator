@@ -1,24 +1,20 @@
 fileFormatVersion: 2
 guid: edc2fa785e28a924d9310ffa77588704
-timeCreated: 1446133570
+timeCreated: 1448029760
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
     100000: Leaves
     100002: //RootNode
-    100004: Trunk
     400000: Leaves
     400002: //RootNode
-    400004: Trunk
     2300000: Leaves
-    2300002: Trunk
+    2300002: //RootNode
     3300000: Leaves
-    3300002: Trunk
-    4300000: Leaves
-    4300002: Trunk
-    6400000: Leaves
-    6400002: Trunk
+    3300002: //RootNode
+    4300000: Trunk
+    4300002: Leaves
   materials:
     importMaterials: 1
     materialName: 0
@@ -44,7 +40,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 1
+    addColliders: 0
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
