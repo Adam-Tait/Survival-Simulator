@@ -14,6 +14,7 @@ public class PlayerCharacter : MonoBehaviour {
 	public string playerThirstState;
 	public float playerHungerRate = 0.33333f;
 	public float playerThirstRate = 0.5f;
+	public float playerStaminaDegeneration;
 	
 	void Start () { // May potentially need Awake () here instead if issues arise such as the player instantly dying.
 		playerHealthRegeneration = playerMaxHealth * 0.002f;

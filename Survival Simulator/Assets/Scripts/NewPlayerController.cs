@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class NewPlayerController : MonoBehaviour {
-	public float sprintSpeed = 0.125f;
+	public float sprintSpeed = 1f;
 	public float forwardSpeed = 8f;
 	public float strafeSpeed = 7f;
 	public float backSpeed = 0.085f;
@@ -10,11 +10,13 @@ public class NewPlayerController : MonoBehaviour {
 	private Rigidbody Player;
 	public float distToGround;
 	private Collider collider;
+	private PlayerCharacter playerCharacter;
 	
 	void Awake () { //Generally use Awake () instead of Start () for things like this
 		Player = GetComponent<Rigidbody> ();
 		collider = GetComponent<Collider> ();
 		distToGround = collider.bounds.extents.y;
+		playerCharacter = GameObject.Find ("Player").GetComponent<PlayerCharacter> ();
 	}
 
 
@@ -27,7 +29,7 @@ public class NewPlayerController : MonoBehaviour {
 			backSpeed = 0;
 			jumpForce = 0;
 		} else {
-			sprintSpeed = 0.125f;
+			sprintSpeed = 1f;
 			forwardSpeed = 8f;
 			strafeSpeed = 7f;
 			backSpeed = 0.085f;
@@ -47,8 +49,9 @@ public class NewPlayerController : MonoBehaviour {
 		if (Input.GetKey (KeyCode.W)) {
 			Player.MovePosition (Player.position + transform.forward * Time.deltaTime * forwardSpeed);
 			if (Input.GetKey (KeyCode.LeftShift)) {
-				forwardSpeed = 11.0f; 
-				Camera.main.fieldOfView = Settings.fov+10;
+				Player.MovePosition (Player.position + transform.forward * Time.deltaTime * (forwardSpeed+sprintSpeed) );
+				//Settings.fov = Settings.fov+10;
+				playerCharacter.playerCurrentStamina -= .3f;
 			}
 			else {
 				forwardSpeed = 8.0f;
