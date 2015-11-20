@@ -29,48 +29,40 @@ public class RayCast : MonoBehaviour {
         {
             coolDown = 0;
         }
-        if (Input.GetMouseButtonDown(0))
-        {
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position, transform.forward, out hit, distance) && coolDown <= 0)
-            {
-                if (hit.collider.gameObject.tag == "Tree")
-                {
-                    treeChop = GameObject.Find(hit.collider.gameObject.name).GetComponent<TreeChop>();
-                    treeChop.currentWood -= 1;
-                    inventory.wood += 1;
-                    PlayerPrefs.SetInt("Wood", inventory.wood + saveWood);
-                    coolDown = maxCooldown;
-                    if(treeChop.currentWood <= 0)
-                    {
-                        GameObject.Find(hit.collider.gameObject.name).SetActive(false);
-                    }
-                }
-                else if (hit.collider.gameObject.tag == "Bush")
-                {
-                    berryCollect = GameObject.Find(hit.collider.gameObject.name).GetComponent<BerryCollect>();
-                    berryCollect.currentBerry -= 1;
-                    inventory.berries += 1;
-                    PlayerPrefs.SetInt("Berry", inventory.berries + saveBerries);
-                    coolDown = maxCooldown;
-                    if (berryCollect.currentBerry <= 0)
-                    {
-                        GameObject.Find(hit.collider.gameObject.name).SetActive(false);
-                    }
-                }
-                else if (hit.collider.gameObject.tag == "Rock")
-                {
-                    rockSmash = GameObject.Find(hit.collider.gameObject.name).GetComponent<RockSmash>();
-                    rockSmash.currentRock -= 1;
-                    inventory.rock += 1;
-                    PlayerPrefs.SetInt("Rock", inventory.rock + saveRock);
-                    coolDown = maxCooldown;
-                    if (rockSmash.currentRock <= 0)
-                    {
-                        GameObject.Find(hit.collider.gameObject.name).SetActive(false);
-                    }
-                }
-            }
-        }
+	if (!PauseScreen.isPaused) { //BECAUSE UNITY BUG
+			if (Input.GetMouseButtonDown (0)) {
+				RaycastHit hit;
+				if (Physics.Raycast (transform.position, transform.forward, out hit, distance) && coolDown <= 0) {
+					if (hit.collider.gameObject.tag == "Tree") {
+						treeChop = GameObject.Find (hit.collider.gameObject.name).GetComponent<TreeChop> ();
+						treeChop.currentWood -= 1;
+						inventory.wood += 1;
+						PlayerPrefs.SetInt ("Wood", inventory.wood + saveWood);
+						coolDown = maxCooldown;
+						if (treeChop.currentWood <= 0) {
+							GameObject.Find (hit.collider.gameObject.name).SetActive (false);
+						}
+					} else if (hit.collider.gameObject.tag == "Bush") {
+						berryCollect = GameObject.Find (hit.collider.gameObject.name).GetComponent<BerryCollect> ();
+						berryCollect.currentBerry -= 1;
+						inventory.berries += 1;
+						PlayerPrefs.SetInt ("Berry", inventory.berries + saveBerries);
+						coolDown = maxCooldown;
+						if (berryCollect.currentBerry <= 0) {
+							GameObject.Find (hit.collider.gameObject.name).SetActive (false);
+						}
+					} else if (hit.collider.gameObject.tag == "Rock") {
+						rockSmash = GameObject.Find (hit.collider.gameObject.name).GetComponent<RockSmash> ();
+						rockSmash.currentRock -= 1;
+						inventory.rock += 1;
+						PlayerPrefs.SetInt ("Rock", inventory.rock + saveRock);
+						coolDown = maxCooldown;
+						if (rockSmash.currentRock <= 0) {
+							GameObject.Find (hit.collider.gameObject.name).SetActive (false);
+						}
+					}
+				}
+			}
+		}// BECAUSE UNITY BUG
 	}
 }
