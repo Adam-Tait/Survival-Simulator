@@ -1,0 +1,67 @@
+Initialize engine version: 5.2.1f1 (44735ea161b3)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: Intel(R) HD Graphics 5500 (ID=0x1616)
+    Vendor:   Intel
+    VRAM:     128 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Jake\Documents\Survival Simulator\v_005_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Jake\Documents\Survival Simulator\v_005_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Jake\Documents\Survival Simulator\v_005_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Jake\Documents\Survival Simulator\v_005_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Jake\Documents\Survival Simulator\v_005_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Jake\Documents\Survival Simulator\v_005_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Jake\Documents\Survival Simulator\v_005_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Jake\Documents\Survival Simulator\v_005_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\Jake\Documents\Survival Simulator\v_005_Data\Managed\System.Core.dll (this message is harmless)
+- Completed reload, in  0.223 seconds
+desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+Platform assembly: C:\Users\Jake\Documents\Survival Simulator\v_005_Data\Managed\System.dll (this message is harmless)
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenu.EnableMenus () [0x00000] in <filename unknown>:0 
+  at MainMenu.Start () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: ca4 -> priority: 1 
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 5.426240 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 315.
+Total: 0.374159 ms (FindLiveObjects: 0.019127 ms CreateObjectMapping: 0.018661 ms MarkObjects: 0.324706 ms  DeleteObjects: 0.011196 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.796371 ms
+
+Unloading 15 unused Assets to reduce memory usage. Loaded Objects now: 219.
+Total: 1.245175 ms (FindLiveObjects: 0.137627 ms CreateObjectMapping: 0.050852 ms MarkObjects: 0.927933 ms  DeleteObjects: 0.126896 ms)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenu.EnableMenus () [0x00000] in <filename unknown>:0 
+  at MainMenu.Start () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.592962 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 317.
+Total: 0.408216 ms (FindLiveObjects: 0.021460 ms CreateObjectMapping: 0.018194 ms MarkObjects: 0.356430 ms  DeleteObjects: 0.011663 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.613490 ms
+
+Unloading 15 unused Assets to reduce memory usage. Loaded Objects now: 219.
+Total: 1.157933 ms (FindLiveObjects: 0.080243 ms CreateObjectMapping: 0.065781 ms MarkObjects: 0.886878 ms  DeleteObjects: 0.119898 ms)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenu.EnableMenus () [0x00000] in <filename unknown>:0 
+  at MainMenu.Start () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+

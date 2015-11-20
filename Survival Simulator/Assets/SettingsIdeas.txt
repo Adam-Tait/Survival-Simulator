@@ -1,0 +1,8 @@
+- Resolution
+- Graphics Settings
+- Mouse Sensitivity
+- FOV?
+- Anti-Aliasing
+- Audio
+- Keybinds? (KeyCode (string))
+
