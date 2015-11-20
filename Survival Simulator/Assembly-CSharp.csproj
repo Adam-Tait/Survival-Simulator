@@ -57,6 +57,7 @@
      <Compile Include="Assets\Scripts\RayCast.cs" />
      <Compile Include="Assets\Scripts\RockSmash.cs" />
      <Compile Include="Assets\Scripts\Settings.cs" />
+     <Compile Include="Assets\Scripts\TabMenuControl.cs" />
      <Compile Include="Assets\Scripts\TreeChop.cs" />
      <None Include="Assets\SettingsIdeas.txt" />
      <None Include="Assets\References.txt" />

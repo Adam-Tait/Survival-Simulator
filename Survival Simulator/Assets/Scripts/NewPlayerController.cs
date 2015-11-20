@@ -51,10 +51,11 @@ public class NewPlayerController : MonoBehaviour {
 			if (Input.GetKey (KeyCode.LeftShift)) {
 				Player.MovePosition (Player.position + transform.forward * Time.deltaTime * (forwardSpeed+sprintSpeed) );
 				//Settings.fov = Settings.fov+10;
-				playerCharacter.playerCurrentStamina -= .3f;
+				playerCharacter.playerCurrentStamina -= .32f;
 			}
 			else {
 				forwardSpeed = 8.0f;
+
 			}
 		}
 		if (Input.GetKey (KeyCode.S)) {
