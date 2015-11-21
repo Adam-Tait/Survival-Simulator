@@ -33,13 +33,14 @@ public class NewPlayerController : MonoBehaviour {
 			forwardSpeed = 8f;
 			strafeSpeed = 7f;
 			backSpeed = 0.085f;
-			jumpForce = 150;
+			jumpForce = 200;
 		}
 	}
 //THIS IS BECAUSE OF A UNITY BUG
 
 
 	void FixedUpdate ()  {
+		//ramp down speed in air
 		if (Input.GetKey (KeyCode.D)) {
 			Player.MovePosition (Player.position + transform.right * Time.deltaTime * strafeSpeed);
 		}
@@ -65,6 +66,9 @@ public class NewPlayerController : MonoBehaviour {
 			if (IsGrounded ()==true) {
 				Player.AddForce(Vector3.up*jumpForce);
 			}
+		}
+		if (IsGrounded () == false) {
+			Player.AddForce(Vector3.down * 9.8f);
 		}
 	}
 
