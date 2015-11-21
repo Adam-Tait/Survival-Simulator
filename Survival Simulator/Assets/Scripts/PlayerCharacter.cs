@@ -14,16 +14,21 @@ public class PlayerCharacter : MonoBehaviour {
 	public string playerThirstState;
 	public float playerHungerRate = 0.33333f;
 	public float playerThirstRate = 0.5f;
+	public float playerStaminaDegeneration;
 	
 	void Start () { // May potentially need Awake () here instead if issues arise such as the player instantly dying.
-		playerHealthRegeneration = playerMaxHealth * 0.002f;
-		playerStaminaRegeneration = playerMaxStamina * 0.002f;
 		playerCurrentHealth = playerMaxHealth;
 		playerCurrentStamina = playerMaxStamina;
 		playerHunger = 100;
 		playerThirst = 100;
 	}
 	void Update () {
+		if (Input.GetKey (KeyCode.LeftShift)) {
+			playerStaminaRegeneration = 0;
+		} else {
+			playerStaminaRegeneration = 7f;
+		}
+
 		if (playerHunger >= 100) {
 			playerHunger = 100;
 		}
@@ -40,8 +45,6 @@ public class PlayerCharacter : MonoBehaviour {
 		} else {
 			playerHungerRate = 0.33333f;
 			playerThirstRate = 0.5f;
-			playerHealthRegeneration = playerMaxHealth * 0.002f;
-			playerStaminaRegeneration = playerMaxStamina * 0.002f;
 			playerHunger = playerHunger - playerHungerRate * Time.deltaTime;
 			playerThirst = playerThirst - playerThirstRate * Time.deltaTime;
 
