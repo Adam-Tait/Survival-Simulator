@@ -51,12 +51,14 @@
      <Compile Include="Assets\Scripts\HUD.cs" />
      <Compile Include="Assets\Scripts\Inventory.cs" />
      <Compile Include="Assets\Scripts\MainMenu.cs" />
+     <Compile Include="Assets\Scripts\NewBehaviourScript.cs" />
      <Compile Include="Assets\Scripts\NewPlayerController.cs" />
      <Compile Include="Assets\Scripts\PauseScreen.cs" />
      <Compile Include="Assets\Scripts\PlayerCharacter.cs" />
      <Compile Include="Assets\Scripts\RayCast.cs" />
      <Compile Include="Assets\Scripts\RockSmash.cs" />
      <Compile Include="Assets\Scripts\Settings.cs" />
+     <Compile Include="Assets\Scripts\SongPlaylist.cs" />
      <Compile Include="Assets\Scripts\TabMenuControl.cs" />
      <Compile Include="Assets\Scripts\TreeChop.cs" />
      <None Include="Assets\SettingsIdeas.txt" />
