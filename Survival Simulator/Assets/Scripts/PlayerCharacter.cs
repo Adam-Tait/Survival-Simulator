@@ -14,13 +14,16 @@ public class PlayerCharacter : MonoBehaviour {
 	public string playerThirstState;
 	public float playerHungerRate = 0.33333f;
 	public float playerThirstRate = 0.5f;
-	public float playerStaminaDegeneration;
+	public float playerHealthDegenerationSlow = 0.33333f;
+	public float playerHealthDegenerationMedium = 0.83333f;
+	public float playerHealthDegenerationFast = 1.16666f;
 	
 	void Start () { // May potentially need Awake () here instead if issues arise such as the player instantly dying.
 		playerCurrentHealth = playerMaxHealth;
 		playerCurrentStamina = playerMaxStamina;
 		playerHunger = 100;
 		playerThirst = 100;
+
 	}
 	void Update () {
 		if (Input.GetKey (KeyCode.LeftShift)) {
@@ -42,11 +45,17 @@ public class PlayerCharacter : MonoBehaviour {
 			playerThirstRate = 0;
 			playerStaminaRegeneration = 0;
 			playerHealthRegeneration = 0;
+			playerHealthDegenerationSlow = 0;
+			playerHealthDegenerationMedium = 0;
+			playerHealthDegenerationFast = 0;
 		} else {
 			playerHungerRate = 0.33333f;
 			playerThirstRate = 0.5f;
 			playerHunger = playerHunger - playerHungerRate * Time.deltaTime;
 			playerThirst = playerThirst - playerThirstRate * Time.deltaTime;
+			playerHealthDegenerationSlow = 0.33333f;
+			playerHealthDegenerationMedium = 0.83333f;
+			playerHealthDegenerationFast = 1.16666f;
 
 		}
 		//THIS IS BECAUSE OF UNITY BUG
@@ -55,7 +64,15 @@ public class PlayerCharacter : MonoBehaviour {
 		PlayerNeeds ();
 		// if statements are very inefficient, look at trying to fix them.
 		if (playerCurrentHealth <= 0) {
-			//You Die. (Kill character and trigger death screen.)
+			/*GameObject [] uiElements = GameObject.FindGameObjectsWithTag("Menu");
+			foreach (GameObject obj in uiElements) {
+				obj.SetActive(false);
+			}
+			Cursor.lockState = CursorLockMode.None;
+			Cursor.visible = true;
+			customMouseLook.enabled = false;
+			Time.timeScale = 0;
+			deathScreen.SetActive(true);*/
 		} 
 		else if (playerCurrentHealth > playerMaxHealth) {
 			playerCurrentHealth = playerMaxHealth;
@@ -121,7 +138,7 @@ public class PlayerCharacter : MonoBehaviour {
 			playerCurrentStamina = playerCurrentStamina + playerStaminaRegeneration * Time.deltaTime;
 		}
 		if (playerHungerState == "Satisfied" && playerThirstState == "Dying(Thirst)") {
-			playerCurrentHealth = playerCurrentHealth - 0.83333f * Time.deltaTime;
+			playerCurrentHealth = playerCurrentHealth - playerHealthDegenerationMedium * Time.deltaTime;
 		}
 
 
@@ -136,7 +153,7 @@ public class PlayerCharacter : MonoBehaviour {
 			//No regen of health or stamina
 		}
 		if (playerHungerState == "Hungry" && playerThirstState == "Dying(Thirst)") {
-			playerCurrentHealth = playerCurrentHealth - 0.83333f * Time.deltaTime;
+			playerCurrentHealth = playerCurrentHealth - playerHealthDegenerationMedium * Time.deltaTime;
 		}
 
 
@@ -151,22 +168,22 @@ public class PlayerCharacter : MonoBehaviour {
 			//No regen of health or stamina
 		}
 		if (playerHungerState == "Starving" && playerThirstState == "Dying(Thirst)") {
-			playerCurrentHealth = playerCurrentHealth - 0.83333f * Time.deltaTime;
+			playerCurrentHealth = playerCurrentHealth - playerHealthDegenerationMedium * Time.deltaTime;
 		}
 
 
 
 		if (playerHungerState == "Dying(Hunger)" && playerThirstState == "Quenched") {
-			playerCurrentHealth = playerCurrentHealth - 0.33333f * Time.deltaTime;
+			playerCurrentHealth = playerCurrentHealth - playerHealthDegenerationSlow * Time.deltaTime;
 		}
 		if (playerHungerState == "Dying(Hunger)" && playerThirstState == "Thirsty") {
-			playerCurrentHealth = playerCurrentHealth - 0.33333f * Time.deltaTime;
+			playerCurrentHealth = playerCurrentHealth - playerHealthDegenerationSlow * Time.deltaTime;
 		}
 		if (playerHungerState == "Dying(Hunger)" && playerThirstState == "Parched") {
-			playerCurrentHealth = playerCurrentHealth - 0.33333f * Time.deltaTime;
+			playerCurrentHealth = playerCurrentHealth - playerHealthDegenerationSlow * Time.deltaTime;
 		}
 		if (playerHungerState == "Dying(Hunger)" && playerThirstState == "Dying(Thirst)") {
-			playerCurrentHealth = playerCurrentHealth - 1.16666f * Time.deltaTime;
+			playerCurrentHealth = playerCurrentHealth - playerHealthDegenerationFast * Time.deltaTime;
 		}
 	}
 }

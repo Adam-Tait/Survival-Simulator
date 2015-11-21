@@ -44,6 +44,7 @@ public class PauseScreen : MonoBehaviour {
 
 	public void MainMenu (int Scene) {
 		Application.LoadLevel (Scene);
+		isPaused = false;
 	}
 
 	public void Resume () {

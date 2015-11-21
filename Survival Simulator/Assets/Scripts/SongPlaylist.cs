@@ -11,8 +11,8 @@ public class SongPlaylist : MonoBehaviour {
 	private AudioSource audioSource;
 
 	void Awake () {
-		audioSource = GameObject.Find ("BackgroundMusic").GetComponent<AudioSource> ();
-		audio = GameObject.Find ("BackgroundMusic").GetComponent<AudioClip> ();
+		audioSource = this.GetComponent<AudioSource> ();
+		audio = this.GetComponent<AudioClip> ();
 	}
 
 	void Update () {
