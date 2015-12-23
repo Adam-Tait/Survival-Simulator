@@ -24,6 +24,7 @@ public class Settings : MonoBehaviour {
 	private Text resolutionText;
 	private Dropdown antiAliasing;
 	private Dropdown textureQuality;
+	private Keybinds Keybinds;
 
 	public static float fov = 60;
 	public string fovString = "";
@@ -50,6 +51,8 @@ public class Settings : MonoBehaviour {
 		resolutionText = GameObject.Find ("ResolutionText").GetComponent<Text> ();
 		antiAliasing = GameObject.Find ("AntiAliasing").GetComponent<Dropdown> ();
 		textureQuality = GameObject.Find ("TextureQuality").GetComponent<Dropdown> ();
+
+		Keybinds = GameObject.Find ("KeybindsManager").GetComponent<Keybinds> ();
 
 		fovSlider.value = fov;
 		mouseSensitivity.value = CustomMouseLook.Xsensitivity;
@@ -101,12 +104,26 @@ public class Settings : MonoBehaviour {
 	public void GoBackSettings () {
 		settingsMenu.SetActive (false);
 		pauseMenu.SetActive (true);
+		PlayerPrefs.SetString ("Forward", Keybinds.Keybindings ["Forward"].ToString ());
+		PlayerPrefs.SetString ("Left", Keybinds.Keybindings ["Left"].ToString ());
+		PlayerPrefs.SetString ("Right", Keybinds.Keybindings ["Right"].ToString ());
+		PlayerPrefs.SetString ("Back", Keybinds.Keybindings ["Back"].ToString ());
+		PlayerPrefs.SetString ("Jump", Keybinds.Keybindings ["Jump"].ToString ());
+		PlayerPrefs.SetString ("Sprint", Keybinds.Keybindings ["Sprint"].ToString ());
+		PlayerPrefs.SetString ("Swing", Keybinds.Keybindings ["Swing"].ToString ());
 		PlayerPrefs.Save ();
 	}
 
 	public void GoBackToMainMenu() {
 		mainSettingsMenu.SetActive (false);
 		mainMenu.SetActive (true);
+		PlayerPrefs.SetString ("Forward", Keybinds.Keybindings ["Forward"].ToString ());
+		PlayerPrefs.SetString ("Left", Keybinds.Keybindings ["Left"].ToString ());
+		PlayerPrefs.SetString ("Right", Keybinds.Keybindings ["Right"].ToString ());
+		PlayerPrefs.SetString ("Back", Keybinds.Keybindings ["Back"].ToString ());
+		PlayerPrefs.SetString ("Jump", Keybinds.Keybindings ["Jump"].ToString ());
+		PlayerPrefs.SetString ("Sprint", Keybinds.Keybindings ["Sprint"].ToString ());
+		PlayerPrefs.SetString ("Swing", Keybinds.Keybindings ["Swing"].ToString ());
 		PlayerPrefs.Save ();
 	}
 

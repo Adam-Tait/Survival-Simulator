@@ -2,13 +2,14 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PauseScreen.cs">
     <Files>
-      <File FileName="Assets\Scripts\TabMenuControl.cs" Line="19" Column="1" />
-      <File FileName="Assets\Scripts\NewPlayerController.cs" Line="43" Column="27" />
-      <File FileName="Assets\Scripts\PlayerCharacter.cs" Line="3" Column="1" />
+      <File FileName="Assets\Scripts\Keybinds.cs" Line="17" Column="1" />
+      <File FileName="Assets\Scripts\NewPlayerController.cs" Line="38" Column="21" />
+      <File FileName="Assets\Scripts\TabMenuControl.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\PlayerCharacter.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\SongPlaylist.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\CustomMouseLook.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Settings.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\PauseScreen.cs" Line="47" Column="20" />
+      <File FileName="Assets\Scripts\Settings.cs" Line="55" Column="76" />
+      <File FileName="Assets\Scripts\PauseScreen.cs" Line="19" Column="47" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
