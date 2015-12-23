@@ -1,22 +1,28 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class NewPlayerController : MonoBehaviour {
 	public float sprintSpeed = 1f;
-	public float forwardSpeed = 8f;
-	public float strafeSpeed = 7f;
+	public float forwardSpeed = 6f;
+	public float strafeSpeed = 5f;
 	public float backSpeed = 0.085f;
 	public int jumpForce = 150;
 	private Rigidbody Player;
 	public float distToGround;
 	private Collider collider;
 	private PlayerCharacter playerCharacter;
+
+	public Keybinds keybinds;
 	
 	void Awake () { //Generally use Awake () instead of Start () for things like this
 		Player = GetComponent<Rigidbody> ();
 		collider = GetComponent<Collider> ();
 		distToGround = collider.bounds.extents.y;
 		playerCharacter = GameObject.Find ("Player").GetComponent<PlayerCharacter> ();
+		keybinds = GameObject.Find ("Manager").GetComponent<Keybinds>();
+
+
 	}
 
 
@@ -29,10 +35,10 @@ public class NewPlayerController : MonoBehaviour {
 			backSpeed = 0;
 			jumpForce = 0;
 		} else {
-			sprintSpeed = 1f;
-			forwardSpeed = 8f;
-			strafeSpeed = 7f;
-			backSpeed = 0.085f;
+			sprintSpeed = 0.4f;
+			forwardSpeed = 6.5f;
+			strafeSpeed = 5.5f;
+			backSpeed = 0.055f;
 			jumpForce = 200;
 		}
 	}
@@ -41,28 +47,29 @@ public class NewPlayerController : MonoBehaviour {
 
 	void FixedUpdate ()  {
 		//ramp down speed in air
-		if (Input.GetKey (KeyCode.D)) {
+		if (Input.GetKey (keybinds.Keybindings["Right"])) {
 			Player.MovePosition (Player.position + transform.right * Time.deltaTime * strafeSpeed);
+			//Debug.Log("test");
 		}
-		if (Input.GetKey (KeyCode.A)) {
+		if (Input.GetKey (keybinds.Keybindings["Left"])) {
 			Player.MovePosition (Player.position + -transform.right * Time.deltaTime * strafeSpeed);
 		}
-		if (Input.GetKey (KeyCode.W)) {
+		if (Input.GetKey (keybinds.Keybindings["Forward"])) {
 			Player.MovePosition (Player.position + transform.forward * Time.deltaTime * forwardSpeed);
-			if (Input.GetKey (KeyCode.LeftShift)) {
-				Player.MovePosition (Player.position + transform.forward * Time.deltaTime * (forwardSpeed+sprintSpeed) );
+			if (Input.GetKey (keybinds.Keybindings["Sprint"]) && playerCharacter.playerCurrentStamina > 0) {
+				Player.MovePosition (Player.position + transform.forward * Time.deltaTime * (forwardSpeed*sprintSpeed) );
 				//Settings.fov = Settings.fov+10;
 				playerCharacter.playerCurrentStamina -= .32f;
 			}
 			else {
-				forwardSpeed = 8.0f;
+				forwardSpeed = 6.5f;
 
 			}
 		}
-		if (Input.GetKey (KeyCode.S)) {
+		if (Input.GetKey (keybinds.Keybindings["Back"])) {
 			Player.MovePosition (Player.position + -transform.forward * Time.deltaTime * strafeSpeed);
 		}
-		if (Input.GetKey (KeyCode.Space)) {
+		if (Input.GetKey (keybinds.Keybindings["Jump"])) {
 			if (IsGrounded ()==true) {
 				Player.AddForce(Vector3.up*jumpForce);
 			}
