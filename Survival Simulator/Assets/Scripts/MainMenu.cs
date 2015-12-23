@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
 
@@ -7,7 +8,7 @@ public class MainMenu : MonoBehaviour {
 	public GameObject mainMenu;
 
 	public void NewGame() {
-		Application.LoadLevel ("Test Scene");
+		SceneManager.LoadScene ("Test Scene");
 	}
 
 	public void QuitGame () {
