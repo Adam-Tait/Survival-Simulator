@@ -1,15 +1,23 @@
 fileFormatVersion: 2
-guid: 1534009c704df0d4a83636c61e85c175
-timeCreated: 1446586862
+guid: ad8aba5f81a7eb7499652ce0c204e36a
+timeCreated: 1451394062
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Plane
+    100000: Metal
+    100002: //RootNode
+    100004: Shaft
+    400000: Metal
+    400002: //RootNode
+    400004: Shaft
+    2300000: Metal
+    2300002: Shaft
+    3300000: Metal
+    3300002: Shaft
+    4300000: Metal
+    4300002: Shaft
+    9500000: //RootNode
   materials:
     importMaterials: 1
     materialName: 0
@@ -24,7 +32,7 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -34,7 +42,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 3
+    globalScale: 0.1
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
@@ -52,7 +60,7 @@ ModelImporter:
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
-    tangentImportMode: 4
+    tangentImportMode: 3
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
@@ -68,7 +76,7 @@ ModelImporter:
     rootMotionBoneName: 
     hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
