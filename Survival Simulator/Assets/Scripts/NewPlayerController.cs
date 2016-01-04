@@ -12,15 +12,19 @@ public class NewPlayerController : MonoBehaviour {
 	public float distToGround;
 	private Collider collider;
 	private PlayerCharacter playerCharacter;
+    private float sprintFOV;
+    private float normalFOV;
 
 	public Keybinds keybinds;
 	
-	void Awake () { //Generally use Awake () instead of Start () for things like this
+	void Awake () { 
 		Player = GetComponent<Rigidbody> ();
 		collider = GetComponent<Collider> ();
 		distToGround = collider.bounds.extents.y;
 		playerCharacter = GameObject.Find ("Player").GetComponent<PlayerCharacter> ();
-		keybinds = GameObject.Find ("Manager").GetComponent<Keybinds>();
+		keybinds = GameObject.Find ("KeybindsManager").GetComponent<Keybinds>();
+        normalFOV = Settings.fov;
+        sprintFOV = Settings.fov + 5;
 
 
 	}
@@ -58,12 +62,12 @@ public class NewPlayerController : MonoBehaviour {
 			Player.MovePosition (Player.position + transform.forward * Time.deltaTime * forwardSpeed);
 			if (Input.GetKey (keybinds.Keybindings["Sprint"]) && playerCharacter.playerCurrentStamina > 0) {
 				Player.MovePosition (Player.position + transform.forward * Time.deltaTime * (forwardSpeed*sprintSpeed) );
-				//Settings.fov = Settings.fov+10;
+				Settings.fov = sprintFOV;
 				playerCharacter.playerCurrentStamina -= .32f;
 			}
 			else {
 				forwardSpeed = 6.5f;
-
+                Settings.fov = normalFOV;
 			}
 		}
 		if (Input.GetKey (keybinds.Keybindings["Back"])) {
