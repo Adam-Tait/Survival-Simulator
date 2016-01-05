@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class PlayerCharacter : MonoBehaviour {
 	public float playerCurrentHealth;
@@ -64,15 +65,7 @@ public class PlayerCharacter : MonoBehaviour {
 		PlayerNeeds ();
 		// if statements are very inefficient, look at trying to fix them.
 		if (playerCurrentHealth <= 0) {
-			/*GameObject [] uiElements = GameObject.FindGameObjectsWithTag("Menu");
-			foreach (GameObject obj in uiElements) {
-				obj.SetActive(false);
-			}
-			Cursor.lockState = CursorLockMode.None;
-			Cursor.visible = true;
-			customMouseLook.enabled = false;
-			Time.timeScale = 0;
-			deathScreen.SetActive(true);*/
+			SceneManager.LoadScene (2);
 		} 
 		else if (playerCurrentHealth > playerMaxHealth) {
 			playerCurrentHealth = playerMaxHealth;
