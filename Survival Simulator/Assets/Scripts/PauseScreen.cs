@@ -9,12 +9,14 @@ public class PauseScreen : MonoBehaviour {
 	private CustomMouseLook mouseLook;
 	private GameObject pauseMenu;
 	private GameObject settingsMenu;
+	private Keybinds Keybinds;
 
 	void Awake () {
 		camera = GameObject.Find ("Main Camera");
 		mouseLook = camera.GetComponent <CustomMouseLook>();
 		pauseMenu = GameObject.Find ("PauseMenu");
 		settingsMenu = GameObject.Find ("SettingsMenu");
+		Keybinds = GameObject.Find ("KeybindsManager").GetComponent<Keybinds> ();
 	}
 
 	void Start () {
@@ -55,6 +57,14 @@ public class PauseScreen : MonoBehaviour {
 		resume = true;
 		Cursor.visible = false;
 		settingsMenu.SetActive (false);
+		PlayerPrefs.SetString ("Forward", Keybinds.Keybindings ["Forward"].ToString ());
+		PlayerPrefs.SetString ("Left", Keybinds.Keybindings ["Left"].ToString ());
+		PlayerPrefs.SetString ("Right", Keybinds.Keybindings ["Right"].ToString ());
+		PlayerPrefs.SetString ("Back", Keybinds.Keybindings ["Back"].ToString ());
+		PlayerPrefs.SetString ("Jump", Keybinds.Keybindings ["Jump"].ToString ());
+		PlayerPrefs.SetString ("Sprint", Keybinds.Keybindings ["Sprint"].ToString ());
+		PlayerPrefs.SetString ("Swing", Keybinds.Keybindings ["Swing"].ToString ());
+		PlayerPrefs.Save ();
 	}
 
 	public void OpenSettings() {
